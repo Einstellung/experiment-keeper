@@ -1,0 +1,13 @@
+[Unit]
+Description=GPU idle monitor and bounded compute workers
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 %h/gpu-idle-monitor.py
+Restart=on-failure
+RestartSec=15
+KillMode=control-group
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target
